@@ -1,19 +1,43 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Form,Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init'
+import { eventWrapper } from '@testing-library/user-event/dist/utils';
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
+  const navigate=useNavigate();
+
+  const [
+    createUserWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useCreateUserWithEmailAndPassword(auth);
+  const handleSubmit=(event)=>{
+     event.preventDefault()
+     const name=event.target.name.value;
+     const email=event.target.email.value;
+     const password=event.target.password.value;
+     createUserWithEmailAndPassword(email,password)
+     updateProfile({displayName:name})
+     console.log(email , password);
+     navigate('/MainBody')
+     
+  }
+  
     return (
         <div className='container'>
-           <Form className=' w-50 mx-auto text-start mb-5 '>
+           <Form onSubmit={handleSubmit} className=' w-50 mx-auto text-start mb-5 '>
            <Form.Group className="mb-3" >
     <Form.Label className='fs-2'>Your Name</Form.Label>
-    <Form.Control type="text" placeholder="Write Your Name" required />
+    <Form.Control name='name' type="text" placeholder="Write Your Name" required />
    </Form.Group>
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label className='fs-2'>Email address</Form.Label>
-    <Form.Control type="email" placeholder="Enter email" required />
+    <Form.Control  name='email' type="email" placeholder="Enter email" required />
     <Form.Text className="text-muted">
       We'll never share your email with anyone else.
     </Form.Text>
@@ -21,7 +45,7 @@ const Register = () => {
  
   <Form.Group className="mb-3" controlId="formBasicPassword">
     <Form.Label className='fs-2'>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" required />
+    <Form.Control  name='password' type="password" placeholder="Password" required />
   </Form.Group>
   <Form.Group className="mb-3" controlId="formBasicCheckbox">
     <Form.Check type="checkbox" label=" I Agree with All requirments" />

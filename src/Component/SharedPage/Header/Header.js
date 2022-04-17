@@ -1,10 +1,19 @@
+
+import { signOut } from 'firebase/auth';
 import React from 'react';
-import { Navbar} from 'react-bootstrap';
+import { Button, Nav, Navbar} from 'react-bootstrap';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../../firebase.init';
 import Logo from '../../../images/logo.jpg'
 import './Header.css'
 
 const Header = () => {
+  const [user] = useSignInWithEmailAndPassword(auth);
+
+  const logout = () => {
+    signOut(auth);
+  };
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light">
@@ -34,7 +43,13 @@ const Header = () => {
       </ul>
       <div className="d-flex nav-item">
       <Link className="nav-link active" aria-current="page" to={'/Register'}>Register</Link>
-      <Link className="nav-link active" aria-current="page" to={'/Login'}>Login</Link>
+      
+           
+       <Link className="nav-link active" aria-current="page" to="/login"> Login</Link>
+      <Button onClick={logout}>log out</Button> 
+                            
+                   
+     
       </div>
     </div>
   </div>
