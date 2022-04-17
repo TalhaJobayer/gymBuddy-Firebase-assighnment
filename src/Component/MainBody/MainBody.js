@@ -8,7 +8,7 @@ import './MainBody.css'
 const MainBody = () => {
     return (
       <>
-        <div>
+        <div id='Banner' >
               <Carousel fade>
   <Carousel.Item>
     <img

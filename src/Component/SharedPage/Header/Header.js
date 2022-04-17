@@ -1,5 +1,7 @@
 import React from 'react';
+import { Navbar} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import Logo from '../../../images/logo.jpg'
 import './Header.css'
 
 const Header = () => {
@@ -7,6 +9,7 @@ const Header = () => {
         <div>
             <nav className="navbar navbar-expand-lg navbar-light">
   <div className="container-fluid">
+  <Navbar.Brand href="#Banner"><img style={{width:'100px'}} src={Logo} alt="" /></Navbar.Brand>
     
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
