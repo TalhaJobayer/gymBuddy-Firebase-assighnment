@@ -7,6 +7,7 @@ import './MainBody.css'
 
 const MainBody = () => {
     return (
+      <>
         <div>
               <Carousel fade>
   <Carousel.Item>
@@ -60,6 +61,10 @@ const MainBody = () => {
       <Offer></Offer>
      
         </div>
+        <div>
+          
+        </div>
+        </>
     );
 };
 

@@ -13,7 +13,7 @@ const Offer = () => {
     ]
     return (
         <div className="container mt-5">
-        <div className='row w-100'>
+        <div id='Offer' className='row w-100'>
            {
                Offers.map(singleOffer=><SingleOffer
                key={singleOffer.id}
