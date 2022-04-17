@@ -25,7 +25,7 @@ const Login = () => {
     Submit
   </Button> <br />
   <Form.Text className="text-dark w-50 mx-auto d-block" style={{margin:"0"}}>
-      Already Have an Account? <Link to={"/Register"}>Register</Link>
+      Didn't Have an Account? <Link to={"/Register"}>Register</Link>
     </Form.Text>
   <Form.Text className="text-dark w-50 mx-auto d-block" style={{margin:"0"}}>
       Forgot Password? 

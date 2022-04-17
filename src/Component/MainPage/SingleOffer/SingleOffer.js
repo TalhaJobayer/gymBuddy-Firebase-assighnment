@@ -1,9 +1,13 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
+
 import './SingleOffer.css'
 
+
 const SingleOffer = ({singleOffer}) => {
+  
     const {img,Focus,program,About,price}=singleOffer;
+    
     return (
         <div className='col-lg-4'>
             <Card>
@@ -23,7 +27,7 @@ const SingleOffer = ({singleOffer}) => {
       </Card.Text>
 
     <Card.Footer>
-    <Button className=' enrollButton w-100' variant="primary">Enroll Now</Button>
+    <Button  className=' enrollButton w-100' variant="primary">Enroll Now</Button>
     </Card.Footer>
   </Card>
         </div>

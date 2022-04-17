@@ -7,6 +7,8 @@ import Footer from './Component/SharedPage/Footer/Footer'
 import Resister from './Component/Register/Register'
 import Login from './Component/Login/Login'
 import MainBody from './Component/MainBody/MainBody';
+import OfferInfo from './Component/MainPage/OfferInfo/OfferInfo';
+import NotFound from './Component/NotFound/NotFound'
  
 function App() {
   return (
@@ -15,8 +17,11 @@ function App() {
      
      <Routes>
        <Route path='/MainBody' element={<MainBody></MainBody>}></Route>
+       <Route path='/Enroll' element={<OfferInfo></OfferInfo>}></Route>
        <Route path='/Register' element={<Resister></Resister>}></Route>
        <Route path='/Login' element={<Login></Login>}></Route>
+       <Route path='*' element={<NotFound></NotFound>}></Route>
+       
      </Routes>
    
      <Footer></Footer>

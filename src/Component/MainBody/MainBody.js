@@ -58,12 +58,13 @@ const MainBody = () => {
         </h1>
     </div>
 </div>
-      <Offer></Offer>
+    
      
         </div>
         <div>
           
         </div>
+        <Offer></Offer>
         </>
     );
 };
