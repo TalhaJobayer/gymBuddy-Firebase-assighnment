@@ -4,7 +4,7 @@ import { Button, Card } from 'react-bootstrap';
 const SingleOffer = ({singleOffer}) => {
     const {img,Focus,program,About}=singleOffer;
     return (
-        <div className='col-lg-4  '>
+        <div className='col-lg-4'>
             <Card>
     <Card.Img variant="top" src={img} />
     <Card.Body>
