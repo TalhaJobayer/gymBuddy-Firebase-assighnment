@@ -15,7 +15,7 @@ const Login = () => {
     loading,
     error,
   ] = useSignInWithEmailAndPassword(auth);
-  let errorElement;
+ 
 
   const handleSubmitSignIn=(event)=>{
     event.preventDefault();
@@ -25,9 +25,9 @@ const Login = () => {
     signInWithEmailAndPassword(email,password)
     
     console.log(email , password);
-   if(user){
-    navigate('/')
-   }
+     if(user){
+          navigate('/')
+        }
   
    if (error ) {
     setError(error?.message)

@@ -45,7 +45,7 @@ const SocialLogin = () => {
         <Button  onClick={() => signInWithGoogle()} className='socialButton mx-auto d-block' variant="white" type="submit">
    <FcGoogle className='Social-icon'></FcGoogle> Sign in With Google
   </Button>
-        <Button  className='socialButton mx-auto d-block' variant="white" type="submit">
+        <Button onClick={()=>signInWithGithub()}  className='socialButton mx-auto d-block' variant="white" type="submit">
    <AiFillGithub className='Social-icon'></AiFillGithub> Sign in With GitHub
   </Button>
   </div>

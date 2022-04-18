@@ -33,6 +33,7 @@ const Register = () => {
       setError(error?.message)
          console.log(Error);
      }
+     updateProfile({displayName:name})
      
   }
   
