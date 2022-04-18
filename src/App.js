@@ -12,6 +12,8 @@ import NotFound from './Component/NotFound/NotFound'
 
 import CheckOut from './Component/MainPage/CheckOut/CheckOut';
 import RequireAuth from './Component/SharedPage/RequireAuth/RequireAuth';
+import Blogs from './Component/MainPage/Blogs/Blogs';
+import AboutMe from './Component/MainPage/AboutMe/AboutMe';
  
 function App() {
   return (
@@ -29,6 +31,9 @@ function App() {
        }></Route>
        <Route path='/Register' element={<Resister></Resister>}></Route>
        <Route path='/Login' element={<Login></Login>}></Route>
+       <Route path='/Blogs' element={<Blogs></Blogs>}></Route>
+       <Route path='/AboutMe' element={<AboutMe></AboutMe>}></Route>
+
        <Route path='*' element={<NotFound></NotFound>}></Route>
        
      </Routes>

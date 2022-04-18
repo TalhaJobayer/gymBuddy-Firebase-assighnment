@@ -1,0 +1,10 @@
+.resetButton{
+    background: none;
+      padding: 0 ;
+      border: none;
+      
+   
+}
+.resetButton:hover{
+    background: none;
+}

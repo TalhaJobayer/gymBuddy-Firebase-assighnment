@@ -5,13 +5,17 @@ import {FcGoogle} from 'react-icons/fc'
 import {AiFillGithub} from 'react-icons/ai'
 
 import auth from '../../../firebase.init';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuthState, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 
 
 const SocialLogin = () => {
     const [Error,setError]=useState('')
     const navigate=useNavigate()
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+    
+   
     //  ========================logIn with Google start====================
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const [signInWithGithub, user1, loading1, error1] = useSignInWithGithub(auth);
@@ -26,9 +30,10 @@ const SocialLogin = () => {
        setError( error1?.message) 
 
     }
-
+    
     if (user || user1) {
-        navigate('/');
+     
+        navigate(from, { replace: true });
     }
 
 
