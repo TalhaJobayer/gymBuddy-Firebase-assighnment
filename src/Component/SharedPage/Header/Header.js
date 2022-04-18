@@ -33,11 +33,11 @@ const Header = () => {
         <Link className="nav-link active" aria-current="page"  to='/'>Home</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#Offer">Offer</a>
+          <Nav.Link  className="nav-link active" href="/#Offer">Offer</Nav.Link>
         </li>
         
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#Offer">Blogs</a>
+          <a className="nav-link active" aria-current="page" href="#">Blogs</a>
         </li>
         
         

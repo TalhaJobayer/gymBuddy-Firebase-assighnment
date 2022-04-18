@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Form,Button } from 'react-bootstrap';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import SocialLogin from '../SharedPage/SocialLogin/SocialLogin';
 
 const Login = () => {
   const [Error ,setError]=useState('')
   const navigate=useNavigate()
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
   //  ========================logIn with Email and password start====================
   const [
     signInWithEmailAndPassword,
@@ -15,7 +17,7 @@ const Login = () => {
     loading,
     error,
   ] = useSignInWithEmailAndPassword(auth);
- 
+  
 
   const handleSubmitSignIn=(event)=>{
     event.preventDefault();
@@ -26,9 +28,9 @@ const Login = () => {
     
     console.log(email , password);
      if(user){
-          navigate('/')
+      navigate(from, { replace: true });
         }
-  
+       
    if (error ) {
     setError(error?.message)
        console.log(Error);
