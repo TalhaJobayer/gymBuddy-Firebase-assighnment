@@ -48,7 +48,7 @@ const Header = () => {
         
         
        
-        <Link  className="nav-link active menuText" aria-current="page" to={"/AboutMe"}>About Me</Link>
+        <Link  className="nav-link active menuText" aria-current="page" to={"/AboutMe"}>About</Link>
         
         {user?'':<Link  className="nav-link active menuText" aria-current="page" to={'/Register'}>Register</Link>}
       

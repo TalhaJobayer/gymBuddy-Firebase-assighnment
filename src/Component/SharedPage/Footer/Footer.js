@@ -28,13 +28,13 @@ const Footer = () => {
             OFFERS
           </h6>
           <p>
-            <a href="#Offer" className="text-reset">SILVER</a>
+            <a href="/#Offer" className="text-reset">SILVER</a>
           </p>
           <p>
-            <a href="#Offer" className="text-reset">GOLD</a>
+            <a href="/#Offer" className="text-reset">GOLD</a>
           </p>
           <p>
-            <a href="#Offer" className="text-reset">PLATINUM</a>
+            <a href="/#Offer" className="text-reset">PLATINUM</a>
           </p>
          
         </div>
