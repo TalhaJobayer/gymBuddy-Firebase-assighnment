@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form,Button } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import SocialLogin from '../SharedPage/SocialLogin/SocialLogin';
 
 const Login = () => {
+  const [Error ,setError]=useState('')
   const navigate=useNavigate()
+  //  ========================logIn with Email and password start====================
   const [
     signInWithEmailAndPassword,
     user,
     loading,
     error,
   ] = useSignInWithEmailAndPassword(auth);
+  let errorElement;
 
   const handleSubmitSignIn=(event)=>{
     event.preventDefault();
@@ -21,12 +25,21 @@ const Login = () => {
     signInWithEmailAndPassword(email,password)
     
     console.log(email , password);
-    navigate('/MainBody')
-    
+   if(user){
+    navigate('/')
+   }
+  
+   if (error ) {
+    setError(error?.message)
+       console.log(Error);
+   }
  }
+//  ========================logIn with Email and password end====================
+
+
     return (
         <div className='container'>
-           <Form  onSubmit={handleSubmitSignIn} className=' w-50 mx-auto text-start mb-5 '>
+           <Form  onSubmit={handleSubmitSignIn} className=' w-50 mx-auto text-start  '>
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label className='fs-2'>Email address</Form.Label>
     <Form.Control name='email' type="email" placeholder="Enter email" required />
@@ -45,6 +58,10 @@ const Login = () => {
   <Button style={{margin:"0"}} className='w-50 mx-auto d-block' variant="primary" type="submit">
     Submit
   </Button> <br />
+  
+<p style={{color:"red"}}> { Error }</p>
+   
+
   <Form.Text className="text-dark w-50 mx-auto d-block" style={{margin:"0"}}>
       Didn't Have an Account? <Link to={"/Register"}>Register</Link>
     </Form.Text>
@@ -53,6 +70,8 @@ const Login = () => {
     </Form.Text>
   
 </Form>
+
+    <SocialLogin></SocialLogin>
         </div>
     );
 };

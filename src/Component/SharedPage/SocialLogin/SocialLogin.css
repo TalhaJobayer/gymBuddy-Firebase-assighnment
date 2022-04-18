@@ -1,0 +1,19 @@
+.Line{
+    width: 250px;
+    height: 2px;
+    background-color: rgba(128, 128, 128,.5);
+}
+.socialButton{
+    width: 300px;
+    border: 1px solid black;
+    font-weight: 600;
+    margin-bottom: 5px;
+   
+}
+.socialButton:hover{
+    background-color: rgb(58, 181, 230);
+    border: none;
+}
+.Social-icon{
+    font-size: 25px;
+}

@@ -3,7 +3,7 @@ import Logo from '../../../images/logo.jpg'
 
 const Footer = () => {
     return (
-        <div >
+        <div  >
             {/* <!-- Footer --> */}
 <footer className="text-center text-lg-start bg-dark text-light ">
  

@@ -4,10 +4,12 @@ import { Form,Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init'
-import { eventWrapper } from '@testing-library/user-event/dist/utils';
+
 import { updateProfile } from 'firebase/auth';
+import SocialLogin from '../SharedPage/SocialLogin/SocialLogin';
 
 const Register = () => {
+  const [Error ,setError]=useState('')
   const navigate=useNavigate();
 
   const [
@@ -24,13 +26,19 @@ const Register = () => {
      createUserWithEmailAndPassword(email,password)
      updateProfile({displayName:name})
      console.log(email , password);
-     navigate('/MainBody')
+    if(user){
+      navigate('/')
+    }
+     if (error ) {
+      setError(error?.message)
+         console.log(Error);
+     }
      
   }
   
     return (
         <div className='container'>
-           <Form onSubmit={handleSubmit} className=' w-50 mx-auto text-start mb-5 '>
+           <Form onSubmit={handleSubmit} className=' w-50 mx-auto text-start'>
            <Form.Group className="mb-3" >
     <Form.Label className='fs-2'>Your Name</Form.Label>
     <Form.Control name='name' type="text" placeholder="Write Your Name" required />
@@ -52,7 +60,9 @@ const Register = () => {
   </Form.Group>
   <Button style={{margin:"0"}} className='w-50 mx-auto d-block' variant="primary" type="submit">
     Submit
-  </Button> <br />
+  </Button><br />
+<p style={{color:"red"}}>{Error}</p>
+   <br />
   <Form.Text className="text-dark w-50 mx-auto d-block" style={{margin:"0"}}>
       Already Have an Account? <Link to={"/Login"}>Login</Link>
     </Form.Text>
@@ -60,6 +70,7 @@ const Register = () => {
       Forgot Password? 
     </Form.Text>
 </Form>
+<SocialLogin></SocialLogin>
         </div>
     );
 };

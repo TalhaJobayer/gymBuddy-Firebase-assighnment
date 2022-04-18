@@ -2,15 +2,18 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
 import { Button, Nav, Navbar} from 'react-bootstrap';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import Logo from '../../../images/logo.jpg'
 import './Header.css'
 
 const Header = () => {
-  const [user] = useSignInWithEmailAndPassword(auth);
-
+  const [
+   
+    user,
+    
+  ] = useAuthState(auth);
   const logout = () => {
     signOut(auth);
   };
@@ -27,26 +30,33 @@ const Header = () => {
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         
         <li className="nav-item ">
-        <Link className="nav-link active" aria-current="page"  to='/MainBody'>Home</Link>
+        <Link className="nav-link active" aria-current="page"  to='/'>Home</Link>
         </li>
         <li className="nav-item">
           <a className="nav-link active" aria-current="page" href="#Offer">Offer</a>
         </li>
+        
         <li className="nav-item">
-          <Link  className="nav-link active" aria-current="page" to={'/Enroll'}>Enroll Info</Link>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#Offer">Contact</a>
+          <a className="nav-link active" aria-current="page" href="#Offer">Blogs</a>
         </li>
         
         
       </ul>
       <div className="d-flex nav-item">
-      <Link className="nav-link active" aria-current="page" to={'/Register'}>Register</Link>
+     {user?'':<Link className="nav-link active" aria-current="page" to={'/Register'}>Register</Link>}
       
-           
-       <Link className="nav-link active" aria-current="page" to="/login"> Login</Link>
-      <Button onClick={logout}>log out</Button> 
+    {
+     user?
+       
+        <Link onClick={logout} className="nav-link active" aria-current="page" to="/login"> Log Out</Link>
+       :
+    
+        <Link className="nav-link active" aria-current="page" to="/login"> Login</Link>
+    }
+   
+       
+     
+     
                             
                    
      

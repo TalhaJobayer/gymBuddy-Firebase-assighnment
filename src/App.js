@@ -16,8 +16,8 @@ function App() {
      <Header></Header>
      
      <Routes>
-       <Route path='/MainBody' element={<MainBody></MainBody>}></Route>
-       <Route path='/Enroll' element={<OfferInfo></OfferInfo>}></Route>
+       <Route path='/' element={<MainBody></MainBody>}></Route>
+       <Route path='/Enroll/:singelOfferid' element={<OfferInfo></OfferInfo>}></Route>
        <Route path='/Register' element={<Resister></Resister>}></Route>
        <Route path='/Login' element={<Login></Login>}></Route>
        <Route path='*' element={<NotFound></NotFound>}></Route>
