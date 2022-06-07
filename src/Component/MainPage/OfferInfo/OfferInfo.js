@@ -6,6 +6,7 @@ import { Link, useParams } from 'react-router-dom';
 const OfferInfo = () => {
     
    const {singelOfferid}=useParams()
+   
     return (
         <div>
             <h1>wellcome to this course:  {singelOfferid}</h1>

@@ -1,7 +1,7 @@
 # Website Name: Gym Buddy 
 ## This Website is made for gym trainer.
-  ### LIve Site:
-  *  https://gymbuddy-45dce.web.app/AboutMe
+  ### Live Site:
+  *  https://gymbuddy-45dce.web.app/home
   
 
 ## Frameworks :

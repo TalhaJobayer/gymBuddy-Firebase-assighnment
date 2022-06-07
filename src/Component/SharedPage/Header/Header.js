@@ -53,12 +53,9 @@ const Header = () => {
         {user?'':<Link  className="nav-link active menuText" aria-current="page" to={'/Register'}>Register</Link>}
       
       {
-       user?
-         
-          <Link  onClick={logout} className="nav-link active menuText" aria-current="page" to="/Login"> Log Out</Link>
+       user?<Link  onClick={logout} className="nav-link active menuText" aria-current="page" to="/Login"> Log Out</Link>
          :
-      
-          <Link className="nav-link active menuText" aria-current="page" to="/login"> Login</Link>
+         <Link className="nav-link active menuText" aria-current="page" to="/login"> Login</Link>
       }
       </Nav>
      
