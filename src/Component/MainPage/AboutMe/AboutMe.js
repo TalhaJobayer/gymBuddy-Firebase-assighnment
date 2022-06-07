@@ -7,7 +7,7 @@ const AboutMe = () => {
             <div className=' container '>
                 <img  className='image' src={image} alt="" />
                 <div>
-                <h1> I'm Talha Jobayer.My final Ambission is to be a Web Developer and to put the word "web developer" next to my name this year.And now my next goal is to complete 10 websites using react-route.All i need to is practice everyday what i have learned these days.</h1>
+                <h1> I'm Talha Jobayer.My final Ambission is to be a Web Developer and to put the word "web developer" next to my name this year.And now my next goal is to complete 10 websites using react-route.All i need to is practice everyday which i have learned these days.</h1>
                 </div>
             </div>
             
